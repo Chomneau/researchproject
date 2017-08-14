@@ -34,22 +34,11 @@
                 </ul>
             </li>
 
-            <li class="sub-menu">
-                <a href="javascript:;" class="">
-                    <i class="fa fa-users" aria-hidden="true"></i>
-                    <span>Users</span>
-                    <span class="menu-arrow arrow_carrot-right"></span>
-                </a>
-                <ul class="sub">
-                    <li><a class="" href="user_view.php">All users</a></li>
-                    <li><a class="" href="user_add_form.php">Add user</a></li>
 
-                </ul>
-            </li>
 
             <li class="sub-menu">
                 <a href="javascript:;" class="">
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    <i class="fa fa-bell-o" aria-hidden="true"></i>
                     <span>News & Events</span>
                     <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
@@ -61,24 +50,37 @@
 
             <li class="sub-menu">
                 <a href="javascript:;" class="">
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                    <span>Policy & Advocacy</span>
+                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    <span>Education</span>
                     <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="policy_view.php">All Policy & Advocacy</a></li>
-                    <li><a class="" href="policy_add_form.php">Add Policy & Advocacy</a></li>
+                    <li><a class="" href="education_view.php">All Education</a></li>
+                    <li><a class="" href="education_add_form.php">Add Education</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    <i class="fa fa-link" aria-hidden="true"></i>
+                    <span>Quick links</span>
+                    <span class="menu-arrow arrow_carrot-right"></span>
+                </a>
+                <ul class="sub">
+                    <li><a class="" href="link_view.php">View all Links</a></li>
+                    <li><a class="" href="link_add_form.php">add new Link</a></li>
                 </ul>
             </li>
 
             <li class="sub-menu">
                 <a href="javascript:;" class="">
-                    <i class="icon_table"></i>
-                    <span>Tables</span>
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <span>Users</span>
                     <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="basic_table.html">Basic Table</a></li>
+                    <li><a class="" href="user_view.php">All users</a></li>
+                    <li><a class="" href="user_add_form.php">Add user</a></li>
+
                 </ul>
             </li>
 

@@ -1,6 +1,4 @@
 <?php include_once "header_admin.php"?>
-<?php include_once "../include/formatHelper.php"?>
-
 <!-- container section start -->
 <section id="container" class="">
 
@@ -19,7 +17,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ol class="breadcrumb">
-                        <li><i class="fa fa-id-card" aria-hidden="true"></i> <strong>All Publications</strong>  <i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-id-card" aria-hidden="true"></i> <strong>ALL NEWS</strong>  <i class="fa fa-angle-right" aria-hidden="true"></i></li>
                     </ol>
                 </div>
             </div>
@@ -28,6 +26,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <section class="panel">
+                        <!--                        <header class="panel-heading">-->
+                        <!--                            ALL NEWS-->
+                        <!--                        </header>-->
+
 
 
                         <table class="table table-striped table-advance table-hover">
@@ -45,19 +47,19 @@
                             <tr>
                                 <?php
                                 include "connection.php";
-                                $select = "SELECT * FROM tbl_publication";
+                                $select = "SELECT * FROM tbl_education ORDER BY id DESC";
                                 $result = mysqli_query($conn, $select);
                                 while ($row = mysqli_fetch_assoc($result)):?>
                             <tr>
 
                                 <td><?php echo $row['add_by']?></td>
-                                <td><?php echo substr($row['en_title'],0, 30); ?></td>
-                                <td style="font-family: 'Content', cursive;"><?php echo TextShortenTable($row['kh_title']); ?></td>
-                                <td><?php echo formatDate($row['create_date'])?></td>
-                                <td><?php echo formatDate($row['update_date']) ?></td>
+                                <td><?php echo substr($row['en_title'],0, 30) ?></td>
+                                <td style="font-family: 'Content', cursive;"><?php echo substr($row['kh_title'], 0 , 30) ?></td>
+                                <td><?php echo substr($row['create_date'],0,10) ?></td>
+                                <td><?php echo substr($row['update_date'],0,10) ?></td>
                                 <td>
-                                    <?php echo "<a href=publication_edit_form.php?id=". $row['id']." ><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> Edit</a>" ?> |
-                                    <?php echo "<a href=publication_delete.php?id=". $row['id']." onClick=\"return confirm('Are you sure you want to delete?')\" ><i class=\"fa fa-times\" aria-hidden=\"true\"></i> Delete</a>" ?>
+                                    <?php echo "<a href=education_edit_form.php?id=". $row['id']." ><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> Edit</a>" ?> |
+                                    <?php echo "<a href=education_delete.php?id=". $row['id']." onClick=\"return confirm('Are you sure you want to delete?')\" ><i class=\"fa fa-times\" aria-hidden=\"true\"></i> Delete</a>" ?>
                                 </td>
                             </tr>
                             <?php endwhile; ?>

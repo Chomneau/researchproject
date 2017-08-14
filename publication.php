@@ -1,4 +1,6 @@
 <?php include "header.php" ?>
+<?php include "include/formatHelper.php" ?>
+
 <!-- slider or umbotron -->
 <div class="container">
   <div class="row">
@@ -25,14 +27,19 @@
                                 <a href="#" class="list-group-item active">
                                   Publication
                                 </a>
-                                <a href="#" class="list-group-item">publication
-                                </a>
-                                <a href="#" class="list-group-item">Journals
-                                </a>
-                                <a href="#" class="list-group-item">Books
-                                </a>
-                                <a href="#" class="list-group-item">Research point
-                                </a>
+                                <?php
+                                include_once "include/connection.php";
+                                $select = "SELECT * FROM tbl_publication ORDER BY id DESC ";
+                                $result = mysqli_query($conn, $select);
+                                if(!$result){
+                                  die("Can not fetch data from database".mysqli_error($conn));
+                                }
+                                ?>
+                                <?php while($row = mysqli_fetch_array($result)) :?>
+                                <a href="publication_detail.php?id=<?php echo $row['id'] ?>" class="list-group-item">
+                                  <?php echo TextSidebarShorten($row['en_title']) ?></a>
+
+                                <?php endwhile; ?>
                               </div>
                             </div>
 
@@ -78,48 +85,33 @@
               <div class="bs-component">
                 <div class="panel panel-default">
 
+                      <?php
+                      include_once "include/connection.php";
+                      $select = "SELECT * FROM tbl_publication";
+                      $result = mysqli_query($conn, $select);
+                      if(!$result){
+                        die("Can not fetch data from database".mysqli_error($conn));
+                      }
+                      ?>
+                      <?php while($row = mysqli_fetch_array($result)) :?>
                   <div class="panel-body">
                     <div class="bs-component">
                       <div class="col-md-3 col-sm-12 event-image" style="margin-top:10px">
-                        <img src="images/image1.jpg" alt="" width="120" height="150px">
+                        <a href="news_detail.php?id=<?php echo $row['id'] ?>"><img src="admin/upload/<?php echo $row['image'] ?>" alt="" width="120" height="150px"></a>
+
                       </div>
                       <div class="col-md-9 col-sm-12 event-body">
 
-                          <h3 class="event-title"><a href="#">This year will have grate event on our education</a> </h3>
-                          <p style="font-size:18px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                          <a href="#"><small>Read more </small></a>
+                          <h3 class="event-title"><a href="publication_detail.php?id=<?php echo $row['id']?>"><?php echo $row['en_title']?></a> </h3>
+                          <p style="font-size:18px"><?php echo Textshorten($row['en_body'], 170) ?></p>
+                          <small><a href="news_detail.php?id=<?php echo $row['id'] ?>">Read more</a>  </small>
                       </div>
+
+
                     </div>
                   </div>
-
-                  <div class="panel-body">
-                    <div class="bs-component">
-                      <div class="col-md-3 col-sm-12 event-image" style="margin-top:10px">
-                        <img src="images/image1.jpg" alt="" width="120" height="150px">
-                      </div>
-                      <div class="col-md-9 col-sm-12 event-body">
-
-                          <h3 class="event-title"><a href="#">This year will have grate event on our education</a> </h3>
-                          <p style="font-size:18px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                          <a href="#"><small>Read more </small></a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="panel-body">
-                    <div class="bs-component">
-                      <div class="col-md-3 col-sm-12 event-image" style="margin-top:10px">
-                        <img src="images/image1.jpg" alt="" width="120" height="150px">
-                      </div>
-                      <div class="col-md-9 col-sm-12 event-body">
-
-                          <h3 class="event-title"><a href="#">This year will have grate event on our education</a> </h3>
-                          <p style="font-size:18px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                          <a href="#"><small>Read more </small></a>
-                      </div>
-                    </div>
-                  </div>
-
+                        <hr>
+                      <?php endwhile; ?>
                   <div class="panel-footer"></div>
 
                 </div>
@@ -133,28 +125,23 @@
                     <a href="#" class="list-group-item active">
                       Recent publication
                     </a>
-                    <a href="#" class="list-group-item">his year will have grate event
-                    </a>
-                    <a href="#" class="list-group-item">Contrate of year will
-                    </a>
-                    <a href="#" class="list-group-item">Hello from education have grate event
-                    </a>
-                    <a href="#" class="list-group-item">his year will have grate event
-                    </a>
-                  </div>
-                </div>
+                    <?php
+                    include_once "include/connection.php";
+                    $select = "SELECT * FROM tbl_publication ORDER BY id DESC ";
+                    $result = mysqli_query($conn, $select);
+                    if(!$result){
+                      die("Can not fetch data from database".mysqli_error($conn));
+                    }
+                    ?>
+                    <?php while($row = mysqli_fetch_array($result)) :?>
+                      <a href="publication_detail.php?id=<?php echo $row['id'] ?>" class="list-group-item">
+                        <?php echo TextSidebarShorten($row['en_title']) ?></a>
 
-                <div class="bs-component">
-                  <div class="list-group" style="font-size:18px">
-                    <a href="#" class="list-group-item active">
-                      Qlick link
-                    </a>
-                    <a href="#" class="list-group-item">Service 1
-                    </a>
-                    <a href="#" class="list-group-item">Service 2
-                    </a>
+                    <?php endwhile; ?>
                   </div>
                 </div>
+          <!--     Quick link widget  -->
+          <?php include "quickLink.php"?>
 
                 <div class="bs-component">
                   <div class="list-group" style="font-size:18px">

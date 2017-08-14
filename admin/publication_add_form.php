@@ -19,13 +19,20 @@
                 <!-- Form Area -->
                 <div class="contact-form">
                     <!-- Form -->
-                    <form id="contact-us" method="post" action="publication_insert_function.php">
+                    <form id="contact-us" method="post" action="publication_insert_function.php" enctype="multipart/form-data">
                         <div class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s">
                             <div class="col-xs-12 wow animated slideInRight" data-wow-delay=".5s">
                                 <!-- Name -->
                                 <input type="text" name="en_title" id="name" required="required" class="form" placeholder="Title" />
                                 <!-- Message -->
                                 <textarea name="en_body" id="message" class="form textarea"  placeholder="Description"></textarea>
+                                <div class="form">
+                                    <label for="Upload photo">Upload Image</label>
+                                    <div style="float:left; margin: auto">
+                                        <input type="hidden" name="size" value="1000000">
+                                        <input type="file" name="pic"><br>
+                                    </div>
+                                </div>
                             </div><!-- End Right Inputs -->
                         </div><!-- End Left Inputs -->
                         <!-- Right Inputs -->

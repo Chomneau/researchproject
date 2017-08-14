@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ol class="breadcrumb">
-                        <li><i class="fa fa-plus-square" aria-hidden="true"></i>Add News <i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-plus-square" aria-hidden="true"></i>Add links <i class="fa fa-angle-right" aria-hidden="true"></i></li>
 
                     </ol>
                 </div>
@@ -26,33 +26,19 @@
                 <!-- Form Area -->
                 <div class="contact-form">
                     <!-- Form -->
-                    <form id="contact-us" method="post" action="news_insert_function.php" enctype="multipart/form-data">
-                        <div class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s">
+                    <form id="contact-us" method="post" action="link_insert_function.php" enctype="multipart/form-data">
+                        <div class="col-xs-12 wow animated slideInLeft" data-wow-delay=".5s">
                             <div class="col-xs-12 wow animated slideInRight" data-wow-delay=".5s">
                                 <!-- Name -->
-                                <input type="text" name="en_title" id="name" required="required" class="form" placeholder="Title" />
-                                <!-- Message -->
-                                <textarea name="en_body" id="message" class="form textarea"  placeholder="Description"></textarea>
-                                <div class="form">
-                                    <label for="Upload photo">Upload Image</label>
-                                    <div style="float:left; margin: auto">
-                                        <input type="hidden" name="size" value="1000000">
-                                        <input type="file" name="pic"><br>
-                                    </div>
-                                </div>
+                                <input type="text" name="en_label" id="name" required="required" class="form" placeholder=" link Title" />
+                                <input type="text" name="kh_label" id="name" required="required" class="form" placeholder="ចំណង​ជើង​ លីង" />
+                                <!-- url -->
+                                <input type="text" name="url" id="name" required="required" class="form" placeholder="paste link here (url)" />
+
+
                             </div><!-- End Right Inputs -->
 
                         </div><!-- End Left Inputs -->
-
-                        <!-- Right Inputs -->
-                        <!-- Input Khmer Description-->
-                        <div class="col-xs-6 wow animated slideInRight" data-wow-delay=".5s">
-                            <!-- ចំណងជើង -->
-                            <input type="text" name="kh_title" id="name" required="required" class="form" placeholder="ចំណងជើង" />
-                            <!-- ព័ត៌មាន​លំអិត សូម​សរសេរ​នៅ​ទីនេះ -->
-                            <textarea name="kh_body" id="message" class="form textarea"  placeholder="ព័ត៌មាន​លំអិត សូម​សរសេរ​នៅ​ទីនេះ "></textarea>
-                        </div><!-- End Right Inputs -->
-
 
 
                         <!-- Bottom Submit -->

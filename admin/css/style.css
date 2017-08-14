@@ -24,8 +24,10 @@ body {
 
     margin: 0px !important;
 
-    font-size:14px !important;    
-
+    font-size:14px !important;
+}
+.event-image {
+    border-bottom-style: double;
 }
 input[type=button], input[type=submit], input[type=reset] {
     background-color: #4CAF50;

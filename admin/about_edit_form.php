@@ -12,7 +12,7 @@ if(isset($_GET['id'])) {
 
 
 
-        $update_about= "UPDATE tbl_about SET en_title='$title_en', en_description='$des_en', kh_title ='$title_kh', kh_description ='$des_kh' WHERE about_id = '$about'";
+        $update_about= "UPDATE tbl_about SET en_title='$title_en', en_body='$des_en', kh_title ='$title_kh', kh_body ='$des_kh' WHERE id = '$about'";
         $result = mysqli_query($conn, $update_about);
         if(!$result){
             die("Can not update!".mysqli_error($conn));
@@ -25,7 +25,7 @@ if(isset($_GET['id'])) {
         }
     }
 
-$query = "SELECT * FROM tbl_about WHERE about_id = '$about' ";
+$query = "SELECT * FROM tbl_about WHERE id = '$about' ";
 $result = mysqli_query($conn, $query);
 if(!$result){
     die("Can not select data from database".mysqli_error($conn));
@@ -67,7 +67,7 @@ $row = mysqli_fetch_array($result);
                                     <!-- Name -->
                                     <input type="text" name="title_en" id="name" value="<?php echo $row['en_title']; ?>" required="required" class="form" placeholder="Title" />
                                     <!-- Message -->
-                                    <textarea name="des_en" id="message" class="form textarea"  placeholder="Description"><?php echo $row['en_description']; ?></textarea>
+                                    <textarea name="des_en" id="message" class="form textarea"  placeholder="Description"><?php echo $row['en_body']; ?></textarea>
                                 </div><!-- End Right Inputs -->
                             </div><!-- End Left Inputs -->
                             <!-- Right Inputs -->
@@ -76,7 +76,7 @@ $row = mysqli_fetch_array($result);
                                 <!-- ចំណងជើង -->
                                 <input type="text" name="title_kh" id="name" value="<?php echo $row['kh_title']; ?>" required="required" class="form" placeholder="ចំណងជើង" />
                                 <!-- ព័ត៌មាន​លំអិត សូម​សរសេរ​នៅ​ទីនេះ -->
-                                <textarea name="des_kh" id="message" class="form textarea"  placeholder="ព័ត៌មាន​លំអិត សូម​សរសេរ​នៅ​ទីនេះ "><?php echo $row['kh_description']; ?></textarea>
+                                <textarea name="des_kh" id="message" class="form textarea"  placeholder="ព័ត៌មាន​លំអិត សូម​សរសេរ​នៅ​ទីនេះ "><?php echo $row['kh_body']; ?></textarea>
                             </div><!-- End Right Inputs -->
 
                             <!-- Bottom Submit -->

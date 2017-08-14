@@ -1,4 +1,6 @@
 <?php include_once "header_admin.php"?>
+<?php include_once "../include/formatHelper.php"?>
+
   <!-- container section start -->
   <section id="container" class="">
 
@@ -35,7 +37,7 @@
                               <table class="table table-striped table-advance table-hover">
                                   <tbody>
                                   <tr>
-                                      <th><i class="fa fa-hashtag" aria-hidden="true"></i>about_id</th>
+                                      <th><i class="fa fa-hashtag" aria-hidden="true"></i>add by</th>
                                       <th><i class="fa fa-list-ul" aria-hidden="true"></i>
                                           English Title</th>
                                       <th><i class="fa fa-list-ul" aria-hidden="true"></i>
@@ -51,13 +53,13 @@
                                       while ($row = mysqli_fetch_assoc($result)):?>
                                           <tr>
 
-                                              <td><?php echo $row['about_id']?></td>
-                                              <td><?php echo $row['en_title']?></td>
-                                              <td style="font-family: 'Content', cursive;"><?php echo $row['kh_title']?></td>
+                                              <td><?php echo $row['add_by']?></td>
+                                              <td><?php echo substr($row['en_title'],0,30)?></td>
+                                              <td style="font-family: 'Content', cursive;"><?php echo substr($row['kh_title'],0,30)?></td>
                                               <td><?php echo $row['created_date']?></td>
                                               <td>
-                                                  <?php echo "<a href=about_edit_form.php?id=". $row['about_id']." ><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> Edit</a>" ?> |
-                                                  <?php echo "<a href=about_delete.php?id=". $row['about_id']." onClick = return confirm(\"Delete\", \"Are you sure you want to delete?\") ><i class=\"fa fa-times\" aria-hidden=\"true\"></i> Delete</a>" ?>
+                                                  <?php echo "<a href=about_edit_form.php?id=". $row['id']." ><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> Edit</a>" ?> |
+                                                  <?php echo "<a href=about_delete.php?id=". $row['id']." onClick = return confirm(\"Delete\", \"Are you sure you want to delete?\") ><i class=\"fa fa-times\" aria-hidden=\"true\"></i> Delete</a>" ?>
                                               </td>
                                           </tr>
                                       <?php endwhile; ?>

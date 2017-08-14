@@ -25,24 +25,24 @@ if(isset($_POST['submit'])){
     $create_date = date('Y-m-d H:i:s', time());
     $addBy = $_SESSION['user_role'];
 
-    $insert = "INSERT INTO tbl_news(add_by,image ,en_title, en_body, kh_title, kh_body, create_date)
+    $insert = "INSERT INTO tbl_education(add_by,image ,en_title, en_body, kh_title, kh_body, create_date)
               VALUES ('$addBy','$image','$en_title', '$en_body', '$kh_title', '$kh_body', '$create_date')";
 
     $result = mysqli_query($conn, $insert);
     if(move_uploaded_file($_FILES['pic']['tmp_name'], $target) && $result){
         ?>
-            <script>
-                alert("Data added Successfully...");
-                window.location.href='new_view.php';
-            </script>
+        <script>
+            alert("Data added Successfully...");
+            window.location.href='new_view.php';
+        </script>
         <?php
         $meg = "New record add successfully!";
-        header("Location:news_view.php?error=".urlencode($meg));
+        header("Location:education_view.php?error=".urlencode($meg));
     }
     else{
         die('Can not insert to database'. mysqli_error($conn));
         $meg = "Can not insert to database!";
-        header("Location:news_add_form.php?error=".urlencode($meg));
+        header("Location:education_add_form.php?error=".urlencode($meg));
         exit();
     }
 

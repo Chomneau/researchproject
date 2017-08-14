@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ol class="breadcrumb">
-                        <li><i class="fa fa-plus-square" aria-hidden="true"></i>Add News <i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-plus-square" aria-hidden="true"></i>Add Education Research <i class="fa fa-angle-right" aria-hidden="true"></i></li>
 
                     </ol>
                 </div>
@@ -26,7 +26,7 @@
                 <!-- Form Area -->
                 <div class="contact-form">
                     <!-- Form -->
-                    <form id="contact-us" method="post" action="news_insert_function.php" enctype="multipart/form-data">
+                    <form id="contact-us" method="post" action="education_insert_function.php" enctype="multipart/form-data">
                         <div class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s">
                             <div class="col-xs-12 wow animated slideInRight" data-wow-delay=".5s">
                                 <!-- Name -->

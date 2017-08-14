@@ -21,22 +21,22 @@ if(isset($_GET['id'])) {
         $update_date = date('Y-m-d H:i:s', time());
         $addBy = $_SESSION['user_role'];
 
-        $update_news = "UPDATE tbl_news SET add_by='$addBy',image='$image', en_title='$en_title', en_body='$en_body', kh_title ='$kh_title', kh_body ='$kh_body', update_date='$update_date' WHERE id = '$id'";
+        $update_news = "UPDATE tbl_education SET add_by='$addBy',image='$image', en_title='$en_title', en_body='$en_body', kh_title ='$kh_title', kh_body ='$kh_body', update_date='$update_date' WHERE id = '$id'";
         $result = mysqli_query($conn, $update_news);
         if(move_uploaded_file($_FILES['pic']['tmp_name'], $target) && $result){
             $meg = "New record add successfully!";
-            header("Location:news_view.php?error=".urlencode($meg));
+            header("Location:education_view.php?error=".urlencode($meg));
         }
         else{
             die('Can not insert to database'. mysqli_error($conn));
             $meg = "Can not insert to database!";
-            header("Location:news_add_form.php?error=".urlencode($meg));
+            header("Location:education_add_form.php?error=".urlencode($meg));
             exit();
         }
     }
 
 
-    $query = "SELECT * FROM tbl_news WHERE id = '$id' ";
+    $query = "SELECT * FROM tbl_education WHERE id = '$id' ";
     $result = mysqli_query($conn, $query);
     if (!$result) {
         die("Can not select data from database" . mysqli_error($conn));
@@ -64,7 +64,7 @@ if(isset($_GET['id'])) {
             <div class="row">
                 <div class="col-lg-12">
                     <ol class="breadcrumb">
-                        <li><i class="fa fa-pencil" aria-hidden="true"></i>Edit News <i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-pencil" aria-hidden="true"></i>Edit Education <i class="fa fa-angle-right" aria-hidden="true"></i></li>
 
                     </ol>
                 </div>

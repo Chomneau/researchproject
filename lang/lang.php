@@ -9,8 +9,11 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="query.php?lang=en">English</a>
-    <a href="query.php?lang=kh">Khmer</a>
+<form action="query.php" method="post">
+    <Button class="btn btn-default" name="langKhmer">Khmer</Button>
+    <Button class="btn btn-danger" name="langEnglish">English</Button>
+</form>
+
 <!--    --><?php
 //        $_SESSION['lang'];
 //    ?>

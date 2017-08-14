@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 include "connection.php";
@@ -13,28 +12,36 @@ if(isset($_GET['id'])) {
         $kh_title = mysqli_real_escape_string($conn, $_POST['kh_title']);
         $kh_body = mysqli_real_escape_string($conn, $_POST['kh_body']);
 
+
+        $target ="../admin/upload/";
+        $target = $target.basename($_FILES['pic']['name']);
+        $image = $_FILES['pic']['name'];
+
         date_default_timezone_set('Asia/Phnom_Penh');
         $update_date = date('Y-m-d H:i:s', time());
         $addBy = $_SESSION['user_role'];
 
-        $update_publication = "UPDATE tbl_publication SET add_by='$addBy' ,en_title='$en_title', en_body='$en_body', kh_title ='$kh_title', kh_body ='$kh_body', update_date='$update_date' WHERE id = '$id'";
-        $result = mysqli_query($conn, $update_publication);
-        if (!$result) {
-            die("Can not update!" . mysqli_error($conn));
-        } else {
-            $meg = "Record update successfully!";
-            header("Location:publication_view.php?error=" . urlencode($meg));
+        $update_news = "UPDATE tbl_publication SET add_by='$addBy',image='$image', en_title='$en_title', en_body='$en_body', kh_title ='$kh_title', kh_body ='$kh_body', update_date='$update_date' WHERE id = '$id'";
+        $result = mysqli_query($conn, $update_news);
+        if(move_uploaded_file($_FILES['pic']['tmp_name'], $target) && $result){
+            $meg = "New record add successfully!";
+            header("Location:publication_view.php?error=".urlencode($meg));
+        }
+        else{
+            die('Can not insert to database'. mysqli_error($conn));
+            $meg = "Can not insert to database!";
+            header("Location:publication_add_form.php?error=".urlencode($meg));
             exit();
         }
     }
 
 
     $query = "SELECT * FROM tbl_publication WHERE id = '$id' ";
-        $result = mysqli_query($conn, $query);
-        if (!$result) {
-            die("Can not select data from database" . mysqli_error($conn));
-        }
-        $row = mysqli_fetch_array($result);
+    $result = mysqli_query($conn, $query);
+    if (!$result) {
+        die("Can not select data from database" . mysqli_error($conn));
+    }
+    $row = mysqli_fetch_array($result);
 }
 ?>
 
@@ -67,13 +74,20 @@ if(isset($_GET['id'])) {
                 <!-- Form Area -->
                 <div class="contact-form">
 
-                    <form id="contact-us" method="post" action=" ">
+                    <form id="contact-us" method="post" action=" " enctype="multipart/form-data" >
                         <div class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s">
                             <div class="col-xs-12 wow animated slideInRight" data-wow-delay=".5s">
                                 <!-- Name -->
                                 <input type="text" name="en_title" id="name" value="<?php echo $row['en_title']; ?>" required="required" class="form" placeholder="Title" />
                                 <!-- Message -->
                                 <textarea name="en_body" id="message" class="form textarea"  placeholder="Description"><?php echo $row['en_body']; ?></textarea>
+                                <div class="form">
+                                    <label for="../Upload photo"><?php echo $row['image'];?> </label>
+                                    <div style="float:left; margin: auto">
+                                        <input type="hidden" name="size" value="1000000">
+                                        <input type="file" name="pic"><br>
+                                    </div>
+                                </div>
                             </div><!-- End Right Inputs -->
                         </div><!-- End Left Inputs -->
                         <!-- Right Inputs -->

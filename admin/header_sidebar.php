@@ -23,7 +23,7 @@
         <ul class="nav pull-right top-menu">
             <!--user login dropdown start-->
             <li>
-                <a href="../index.php"><span><i class="fa fa-globe" aria-hidden="true"></i> go site</span></a>
+                <a href="../index.php" target="_blank"><span><i class="fa fa-globe" aria-hidden="true"></i> go site</span></a>
             </li>
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">

@@ -1,97 +1,59 @@
 
-
-
 <?php include "header.php" ?>
 <!-- slider or umbotron -->
 <?php include "slider.php" ?>
+<?php include "include/formatHelper.php" ?>
 
 
 <!-- content center -->
-        <div class="container" style="margin-top:50px">
-          <div class="row">
+<div class="container" style="margin-top: 50px">
+  <div class="row">
+    <div class="col-lg-9 col-md-9 col-sm-12">
 
-            <div class="col-lg-9 col-md-9 col-sm-12">
+      <div class="bs-component">
+        <div class="panel panel-default">
+          <?php
+          include_once "include/connection.php";
+          $select = "SELECT * FROM tbl_news ORDER BY id DESC LIMIT 3";
+          $result = mysqli_query($conn, $select);
+          if(!$result){
+            die("Can not fetch data from database".mysqli_error($conn));
+          }
+          ?>
+          <?php while($row = mysqli_fetch_array($result)) :?>
+
+            <div class="panel-body">
 
               <div class="bs-component">
-                <div class="panel panel-default">
 
-                  <div class="panel-body">
-                    <div class="bs-component">
-                      <div class="col-md-3 col-sm-12 event-image">
-                        <img src="images/image1.jpg" alt="" width="150" height="150px">
-                      </div>
-                      <div class="col-md-9 col-sm-12 event-body">
+                <div class="col-md-3 col-sm-12 ">
+                  <a href="news_detail.php?id=<?php echo $row['id'] ?>"><img src="admin/upload/<?php echo $row['image'] ?>" alt="" width="150" height="150px"></a>
+                </div>
+                <div class="col-md-9 col-sm-12 event-body">
 
-                          <h3 class="event-title"><a href="#">This year will have grate event on our education</a> </h3>
-                          <p style="font-size:18px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                          <small>Read more </small>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="panel-body">
-                    <div class="bs-component">
-                      <div class="col-md-3 col-sm-12 event-image">
-                        <img src="images/image1.jpg" alt="" width="150" height="150px">
-                      </div>
-                      <div class="col-md-9 col-sm-12 event-body">
-
-                          <h3 class="event-title"><a href="#">This year will have grate event on our education</a> </h3>
-                          <p style="font-size:18px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                          <small>Read more </small>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="panel-body">
-                    <div class="bs-component">
-                      <div class="col-md-3 col-sm-12 event-image">
-                        <img src="images/image1.jpg" alt="" width="150" height="150px">
-                      </div>
-                      <div class="col-md-9 col-sm-12 event-body">
-
-                          <h3 class="event-title"><a href="#">This year will have grate event on our education</a> </h3>
-                          <p style="font-size:18px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                          <a href="#"><small>Read more </small></a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="panel-footer"></div>
+                  <h3 class="event-title"><a href="news_detail.php?id=<?php echo $row['id'] ?>"><?php echo $row['en_title'] ?></a> </h3>
+                  <p style="font-size:18px"><?php echo Textshorten($row['en_body']) ?></p>
+                  <small><a href="news_detail.php?id=<?php echo $row['id'] ?>">Read more</a>  </small>
 
                 </div>
               </div>
             </div>
+            <hr>
+          <?php endwhile; ?>
+
+          <!--                  <div class="panel-footer"></div>-->
+        </div>
+      </div>
+    </div>
 
             <!-- right sidebar -->
               <div class="col-lg-3 pull-right">
-                <div class="bs-component">
-                  <div class="list-group" style="font-size:17px">
-                    <a href="#" class="list-group-item active">
-                      Event and Meeting
-                    </a>
-                    <a href="#" class="list-group-item">his year will have grate event
-                    </a>
-                    <a href="#" class="list-group-item">Contrate of year will have grate event
-                    </a>
-                    <a href="#" class="list-group-item">Hello from education have grate event
-                    </a>
-                    <a href="#" class="list-group-item">his year will have grate event
-                    </a>
-                  </div>
-                </div>
-
-                <div class="bs-component">
-                  <div class="list-group" style="font-size:17px">
-                    <a href="#" class="list-group-item active">
-                      Qlick link
-                    </a>
-                    <a href="#" class="list-group-item">Service 1
-                    </a>
-                    <a href="#" class="list-group-item">Service 2
-                    </a>
-                  </div>
-                </div>
+                <!--recent news event-->
+                <?php include "recent_event_meeting.php"?>
+                <!--recent publication-->
+                <?php include "recent_publication.php"?>
+                <!--quick link-->
+                <?php include "quickLink.php"?>
 
                 <div class="bs-component">
                   <div class="list-group" style="font-size:17px">
@@ -108,13 +70,10 @@
           </div>
         </div>
 
-
-
     <div class="container">
       <div class="row">
-<?php include "partner.php" ?>
+        <?php include "partner.php" ?>
       </div>
-
     </div>
 
 

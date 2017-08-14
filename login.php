@@ -11,10 +11,10 @@
                 <input type="password" class="form-control" name="password" placeholder="Password" required>
                 <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">
                     Sign in</button>
-                <label class="checkbox pull-left">
-                    <input type="checkbox" value="remember-me">
-                    Remember me
-                </label>
+<!--                <label class="checkbox pull-left">-->
+<!--                    <input type="checkbox" value="remember-me">-->
+<!--                    Remember me-->
+<!--                </label>-->
               
                 </form>
             </div>

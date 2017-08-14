@@ -8,7 +8,7 @@
 <!-- content center -->
 <div class="container" style="margin-top: 50px">
   <div class="row">
-    <div class="col-lg-9 col-md-9 col-sm-12">
+    <div class="col-lg-8 col-md-8 col-sm-12">
 
       <div class="bs-component">
         <div class="panel panel-default">
@@ -32,8 +32,8 @@
                 <div class="col-md-9 col-sm-12 event-body">
 
                   <h3 class="event-title"><a href="news_detail.php?id=<?php echo $row['id'] ?>"><?php echo $row['en_title'] ?></a> </h3>
-                  <p style="font-size:18px"><?php echo Textshorten($row['en_body']) ?></p>
-                  <small><a href="news_detail.php?id=<?php echo $row['id'] ?>">Read more</a>  </small>
+                  <p style="font-size:18px"><?php echo Textshorten($row['en_body']) ?><a href="news_detail.php?id=<?php echo $row['id']?>">continue reading <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></p>
+
 
                 </div>
               </div>
@@ -47,7 +47,7 @@
     </div>
 
             <!-- right sidebar -->
-              <div class="col-lg-3 pull-right">
+              <div class="col-lg-4 pull-right">
                 <!--recent news event-->
                 <?php include "recent_event_meeting.php"?>
                 <!--recent publication-->
@@ -55,24 +55,15 @@
                 <!--quick link-->
                 <?php include "quickLink.php"?>
 
-                <div class="bs-component">
-                  <div class="list-group" style="font-size:17px">
-                    <a href="#" class="list-group-item active">
-                      Follow us
-                    </a>
-                    <a href="#" class="list-group-item">Facebook
-                    </a>
-                    <a href="#" class="list-group-item">Twitter
-                    </a>
-                  </div>
-                </div>
+
               </div>
           </div>
         </div>
 
     <div class="container">
       <div class="row">
-        <?php include "partner.php" ?>
+                <?php include "publication_other_widget.php" ?>
+<!--        --><?php //include "partner.php" ?>
       </div>
     </div>
 

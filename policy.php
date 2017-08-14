@@ -29,7 +29,7 @@
       <div class="col-lg-3">
         <div class="bs-component">
           <div class="list-group" style="font-size:18px">
-            <a href="about.php" class="list-group-item active">
+            <a href="policy.php" class="list-group-item active">
               Policy & advocacy
             </a>
             <?php
@@ -41,28 +41,19 @@
             }
             ?>
             <?php while($row = mysqli_fetch_array($result)) :?>
-              <a href="about_detail.php?id=<?php echo $row['id'] ?>" class="list-group-item"><?php echo $row['en_title'] ?></a>
+              <a href="policy_detail.php?id=<?php echo $row['id'] ?>" class="list-group-item"><?php echo $row['en_title'] ?></a>
 
             <?php endwhile; ?>
           </div>
         </div>
-
         <!--     Quick link wedget       -->
         <?php include "quickLink.php"?>
 
-
       </div>
-
-
-
-
-
 
       <!-- content center -->
       <div class="col-lg-9">
-
         <div class="row">
-
           <div class="col-lg-12">
             <div class="bs-component">
               <?php
@@ -82,7 +73,7 @@
                     <hr>
                     <div class="bs-component">
                       <blockquote>
-                        <p><?php echo $row['en_body']; ?></p>
+                        <p><?php echo TextContinueReading($row['en_body']); ?><a href="policy_detail.php?id=<?php echo $row['id']?>">continue reading <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></p>
                         <small> <cite title="Source Title"><?php echo $row['en_title']; ?></cite></small>
                       </blockquote>
                     </div>
@@ -96,53 +87,10 @@
 
         </div>
         <!-- end row -->
-
       </div>
-      <!-- right sidebar -->
-      <!-- <div class="col-lg-3 pull-right">
-        <div class="bs-component">
-          <div class="list-group">
-            <a href="#" class="list-group-item active">
-              Qlick link
-            </a>
-            <a href="#" class="list-group-item">Service 1
-            </a>
-            <a href="#" class="list-group-item">Service 2
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 pull-right">
-        <div class="bs-component">
-          <div class="list-group">
-            <a href="#" class="list-group-item active">
-              Follow us
-            </a>
-            <a href="#" class="list-group-item">Facebook
-            </a>
-            <a href="#" class="list-group-item">Twitter
-            </a>
-          </div>
-        </div>
-      </div> -->
 
     </div>
 
-  </div>
-
-
-  <div id="source-modal" class="modal fade">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Source Code</h4>
-        </div>
-        <div class="modal-body">
-          <pre></pre>
-        </div>
-      </div>
-    </div>
   </div>
 
 </div>

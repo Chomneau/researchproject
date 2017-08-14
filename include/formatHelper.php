@@ -36,6 +36,16 @@ function TextShortenTable($text, $chars = 70){
     $text = $text."...";
     return $text;
 }
+/**
+ * shorten text style for continue reading
+ */
+function TextContinueReading($text, $chars = 360){
+    $text = $text." ";
+    $text = substr($text,0 ,$chars);
+   // $text = substr($text, 0, strrpos($text,''));
+    $text = $text."...";
+    return $text;
+}
 
 /**
  * shorten text style for sidebar

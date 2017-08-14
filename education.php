@@ -82,8 +82,8 @@
                         <div class="col-md-9 col-sm-12 event-body">
                           <h4 class="event-title" style="margin-top: -10px"><a href="education_detail.php?id=<?php echo $row['id'] ?>"><?php echo $row['en_title'] ?></a> </h4>
                           <p style="color: #9a9ea0"><i class="fa fa-calendar" aria-hidden="true"></i> <?php echo formatDate($row['create_date']) ?> by   <?php echo "admin" ?> </p>
-                          <p style="font-size:18px"><?php echo textShort($row['en_body']) ?></p>
-                          <small><a href="education_detail.php?id=<?php echo $row['id'] ?>">Read more</a>  </small>
+                          <p style="font-size:18px"><?php echo textShort($row['en_body']) ?><a href="education_detail.php?id=<?php echo $row['id']?>">continue reading <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></p>
+
 
                         </div>
 

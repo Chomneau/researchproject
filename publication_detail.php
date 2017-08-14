@@ -50,18 +50,7 @@
                     </div>
                   </div>
 
-                    <div class="container">
-                      <div class="row">
-                        <div class="col-dm-3"></div>
-                        <div class="col-dm-3" style="margin-bottom:20px; margin-left:17%">
-                            <a href="#" class="btn btn-primary">Download now</a>
-                        </div>
-                        <div class="col-dm-3"></div>
 
-
-                      </div>
-
-                    </div>
 
                   <div class="panel-footer"></div>
 

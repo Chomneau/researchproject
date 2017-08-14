@@ -54,8 +54,8 @@
                         <div class="col-md-9 col-sm-12 event-body">
 
                           <h3 class="event-title"><a href="news_detail.php?id=<?php echo $row['id'] ?>"><?php echo $row['en_title'] ?></a> </h3>
-                          <p style="font-size:18px"><?php echo Textshorten($row['en_body']) ?></p>
-                          <small><a href="news_detail.php?id=<?php echo $row['id'] ?>">Read more</a>  </small>
+                          <p style="font-size:18px"><?php echo Textshorten($row['en_body']) ?><a href="news_detail.php?id=<?php echo $row['id']?>">continue reading <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></p>
+
 
                         </div>
 

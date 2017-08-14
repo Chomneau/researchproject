@@ -4,22 +4,27 @@
     <div id="footer">
     <div class="container">
       <div class="row">
-
+          <?php
+          include "include/connection.php";
+          $select = "SELECT * FROM tbl_footer ORDER BY id DESC";
+          $result = mysqli_query($conn, $select);
+          $row = mysqli_fetch_assoc($result);
+          ?>
           <div class="col-sm-4">
             <div class="foot-header">
               ABOUT US
             </div>
             <div class="foot-links">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p><?php echo $row['en_about']?></p>
             </div>
           </div><!--/col-sm-3-->
         <div class="col-sm-4">
           <div class="foot-header" style="padding-left: 25px"> Find us on </div>
 
           	<ul>
-          	  <li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</a></li>
-              <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a></li>
-              <li><a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i> Youtube</a></li>
+          	  <li><a href="<?php echo $row['facebook_url']?>" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</a></li>
+              <li><a href="<?php echo $row['twitter_url']?>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+              <li><a href="<?php echo $row['youtube_url']?>" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i> Youtube</a></li>
           	</ul>
 
         </div>
@@ -29,9 +34,9 @@
           </div>
           <div>
             <ul>
-              <li><i class="fa fa-map-marker" aria-hidden="true"></i> #509, St. Lom, Meanchey Village, Sangkat Streng Meanchey, Khan Meanchey, Phnom Penh.</li>
-              <li><i class="fa fa-phone-square" aria-hidden="true"></i> : (+855) 12 277 764 </li>
-              <li><i class="fa fa-envelope" aria-hidden="true"></i> info@crcambodia.org</li>
+              <li><i class="fa fa-map-marker" aria-hidden="true"></i> <?php echo $row['address']?></li>
+              <li><i class="fa fa-phone-square" aria-hidden="true"></i> <?php echo $row['phone']?> </li>
+              <li><i class="fa fa-envelope" aria-hidden="true"></i> <?php echo $row['email']?></li>
             </ul>
           </div>
         </div><!--/col-sm-3-->
@@ -72,15 +77,15 @@
             <div class="col-sm-4 text-right">
             	<span class="fa-stack fa-lg">
                   <i class="fa fa-circle text-primary fa-stack-2x"></i>
-                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  <a href="<?php echo $row['facebook_url']?>"><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></a>
                 </span>
               <span class="fa-stack fa-lg">
                   <i class="fa fa-circle text-info fa-stack-2x"></i>
-                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  <a href="<?php echo $row['twitter_url']?>"><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></a>
                 </span>
               <span class="fa-stack fa-lg">
                   <i class="fa fa-circle text-danger fa-stack-2x"></i>
-                  <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                  <a href="<?php echo $row['youtube_url']?>"><i class="fa fa-youtube fa-stack-1x fa-inverse"></i></a>
                 </span>
             </div>
           </div>

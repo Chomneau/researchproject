@@ -59,6 +59,20 @@
                     <li><a class="" href="education_add_form.php">Add Education</a></li>
                 </ul>
             </li>
+
+            <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    <span>Policy & Advoc..</span>
+                    <span class="menu-arrow arrow_carrot-right"></span>
+                </a>
+                <ul class="sub">
+                    <li><a class="" href="policy_view.php">All policy & Advocacy</a></li>
+                    <li><a class="" href="policy_add_form.php">Add policy & Advocacy</a></li>
+                </ul>
+            </li>
+
+
             <li class="sub-menu">
                 <a href="javascript:;" class="">
                     <i class="fa fa-link" aria-hidden="true"></i>
@@ -86,15 +100,13 @@
 
             <li class="sub-menu">
                 <a href="javascript:;" class="">
-                    <i class="icon_documents_alt"></i>
-                    <span>Setting</span>
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <span>Footer Setting</span>
                     <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="#">Dashboard</a></li>
-                    <li><a class="" href="#"><span>company</span></a></li>
-                    <li><a class="" href="#">Blank Page</a></li>
-                    <li><a class="" href="#">404 Error</a></li>
+                    <li><a class="" href="footer_view.php">View footer</a></li>
+<!--                    <li><a class="" href="footer_edit_form.php">Edit footer</a></li>-->
                 </ul>
             </li>
 

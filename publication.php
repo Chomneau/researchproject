@@ -87,7 +87,7 @@
 
                       <?php
                       include_once "include/connection.php";
-                      $select = "SELECT * FROM tbl_publication";
+                      $select = "SELECT * FROM tbl_publication ORDER BY id LIMIT 3";
                       $result = mysqli_query($conn, $select);
                       if(!$result){
                         die("Can not fetch data from database".mysqli_error($conn));
@@ -103,8 +103,8 @@
                       <div class="col-md-9 col-sm-12 event-body">
 
                           <h3 class="event-title"><a href="publication_detail.php?id=<?php echo $row['id']?>"><?php echo $row['en_title']?></a> </h3>
-                          <p style="font-size:18px"><?php echo Textshorten($row['en_body'], 170) ?></p>
-                          <small><a href="news_detail.php?id=<?php echo $row['id'] ?>">Read more</a>  </small>
+                          <p style="font-size:18px"><?php echo Textshorten($row['en_body'], 170) ?><a href="education_detail.php?id=<?php echo $row['id']?>">continue reading <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></p>
+
                       </div>
 
 
@@ -120,40 +120,12 @@
 
             <!-- right sidebar -->
               <div class="col-lg-3 pull-right">
-                <div class="bs-component">
-                  <div class="list-group" style="font-size:18px">
-                    <a href="#" class="list-group-item active">
-                      Recent publication
-                    </a>
-                    <?php
-                    include_once "include/connection.php";
-                    $select = "SELECT * FROM tbl_publication ORDER BY id DESC ";
-                    $result = mysqli_query($conn, $select);
-                    if(!$result){
-                      die("Can not fetch data from database".mysqli_error($conn));
-                    }
-                    ?>
-                    <?php while($row = mysqli_fetch_array($result)) :?>
-                      <a href="publication_detail.php?id=<?php echo $row['id'] ?>" class="list-group-item">
-                        <?php echo TextSidebarShorten($row['en_title']) ?></a>
 
-                    <?php endwhile; ?>
-                  </div>
-                </div>
-          <!--     Quick link widget  -->
-          <?php include "quickLink.php"?>
+                <!--     Quick link widget  -->
+                <?php include "recent_event_meeting.php"?>
+                <!--     Quick link widget  -->
+                <?php include "quickLink.php"?>
 
-                <div class="bs-component">
-                  <div class="list-group" style="font-size:18px">
-                    <a href="#" class="list-group-item active">
-                      Follow us
-                    </a>
-                    <a href="#" class="list-group-item">Facebook
-                    </a>
-                    <a href="#" class="list-group-item">Twitter
-                    </a>
-                  </div>
-                </div>
               </div>
           </div>
           <!-- end row -->
@@ -161,66 +133,7 @@
         <!-- end container -->
 
         <!-- Other publication -->
-        <div class="container " style="margin-bottom: 30px">
-          <div class="row">
-            <div class="publication">
-              <h3>Other Publication</h3>
-              <hr>
-            </div>
-
-            <!-- publication 1 -->
-            <div class="col-lg-4 col-md-4 col-sm-12">
-              <div class="panel-body">
-                <div class="bs-component">
-                  <div class="col-md-3 col-sm-12 event-image" style="margin-top:15px">
-                    <img src="images/image1.jpg" alt="" width="120" height="150px">
-                  </div>
-                  <div class="col-md-9 col-sm-12 event-body-public">
-
-                      <h3 class="event-title-public"><a href="#">This year will have grate event on our education</a> </h3>
-                      <p style="font-size:14px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                      <a href="#"><small>Read more </small></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- publication 2 -->
-            <div class="col-lg-4 col-md-4 col-sm-12">
-              <div class="panel-body">
-                <div class="bs-component">
-                  <div class="col-md-3 col-sm-12 event-image" style="margin-top:15px">
-                    <img src="images/image1.jpg" alt="" width="120" height="150px">
-                  </div>
-                  <div class="col-md-9 col-sm-12 event-body-public">
-
-                      <h3 class="event-title-public"><a href="#">This year will have grate event on our education</a> </h3>
-                      <p style="font-size:14px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                      <a href="#"><small>Read more </small></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- publication 3 -->
-            <div class="col-lg-4 col-md-4 col-sm-12">
-              <div class="panel-body">
-                <div class="bs-component">
-                  <div class="col-md-3 col-sm-12 event-image" style="margin-top:15px">
-                    <img src="images/image1.jpg" alt="" width="120" height="150px">
-                  </div>
-                  <div class="col-md-9 col-sm-12 event-body-public">
-
-                      <h3 class="event-title-public"><a href="#">This year will have grate event on our education</a> </h3>
-                      <p style="font-size:14px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                      <a href="#"><small>Read more </small></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- publication 4 -->
-
-
-          </div><!-- end row -->
-        </div><!-- end container -->
+        <?php include "publication_other_widget.php"?>
 <!-- footer space -->
         <div class="footspace">
             <hr>

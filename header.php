@@ -62,7 +62,9 @@
             <li><a href="publication.php" target="_self">Publication</a></li>
             <li><a href="education.php" target="_self">Education & Research</a></li>
             <li><a href="policy.php" target="_self">Policy & Advocacy</a></li>
+            <li><a href="login.php" target="_self">Login  <i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
             <!-- <li><a href="contact.php" target="_self">Contact</a></li> -->
+
           </ul>
 
         </div>
